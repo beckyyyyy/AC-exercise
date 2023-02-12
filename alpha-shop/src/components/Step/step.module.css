@@ -1,0 +1,70 @@
+.progressContainer{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 20px 0;
+}
+.progressGroup{
+    display: flex;
+    position: relative;
+}
+.progressBar1{
+    display: block;
+    height: 2px;
+    width: 50px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+}
+.progressBar2 {
+    display: block;
+    height: 2px;
+    width: 50px;
+    background-color: #c6c1c1;
+    position: absolute;
+    top: 50%;
+    right: 20%;
+}
+.progressIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;    
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.OnProgressIcon{
+    background-color: #000000;
+    color: #ffffff;
+}
+.unDoneProgressIcon{
+    background-color: transparent;
+    border:1px solid #c6c1c1;
+}
+.unDoneProgressIcon > .stepText{
+    color: #c6c1c1;
+}
+.unDoneProgressLabel{
+    color: #c6c1c1;
+}
+.progressLabel{
+    display: none;
+}
+
+@media screen and (min-width:720px) {
+    .progressLabel{
+        display:block;
+}
+    .progressBar1 {
+        width: 15%;
+}
+
+    .progressBar2 {
+        width: 15%;
+}
+}

@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+.siteMain{
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* .mainContainer {} */
+
+/* 購物籃 */
+.cartContainer {
+    background-color: lightgrey;
+}
+
+@media screen and (min-width:720px) {
+.siteMain {  
+        display: grid;
+        grid-template-columns: 7fr 5fr;
+        grid-gap: 0 50px;
+    }
+}
+
+
+
+
+
+
+
+
+

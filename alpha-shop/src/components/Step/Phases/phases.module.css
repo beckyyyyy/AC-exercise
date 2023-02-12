@@ -1,0 +1,133 @@
+/* Grid */
+.formBody {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 0 20px;
+}
+/* address phase's grid */
+.genderInput {
+    grid-column: 1/3;
+}
+.nameInput {
+    grid-column: 3/7;
+}
+.telInput, .emailInput, .cityInput, .addressInput{
+    grid-column: 1/7;
+}
+
+/* ship phase's grid */
+.radioGroup {
+    grid-column: 1/7;
+    margin: 15px 0;
+}
+
+/* credit-card phase's grid */
+.cardName,
+.cardNumber {
+    grid-column: 1/7;
+}
+
+.expDate {
+    grid-column: 1/4;
+}
+
+.cvcNumber {
+    grid-column: 4/7;
+}
+
+@media screen and (min-width:720px) {
+    /* address phase's grid */
+    .genderInput {
+        grid-column: 1/3;
+    }
+
+    .nameInput {
+        grid-column: 3/7;
+    }
+
+    .telInput {
+        grid-column: 1/4;
+    }
+
+    .emailInput {
+        grid-column: 4/7;
+    }
+
+    .cityInput {
+        grid-column: 1/3;
+    }
+
+    .addressInput {
+        grid-column: 3/7;
+    }
+
+    /* ship phase's grid */
+    .radioGroup {
+        grid-column: 1/6;
+        margin: 15px 0;
+    }
+
+    /* credit-card phase's grid */
+    .cardName,
+    .cardNumber {
+        grid-column: 1/5;
+    }
+
+    .expDate {
+        grid-column: 1/4;
+    }
+
+    .cvcNumber {
+        grid-column: 4/7;
+    }
+}
+
+/* style */
+.formContainer{
+    margin-top: 50px;
+}
+.formTitle{
+    margin: 10px 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #2A2A2A;
+}
+
+.inputLabel{
+    height: 20px;
+    color: #808080;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.inputBox,.selectBox{
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #4A4A4A;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #999999;
+}
+
+/* shipping phase's style */
+.radioGroup{
+    display: flex;
+    border: 1px solid #F0F0F5;
+    border-radius: 4px;
+    padding: 20px;
+}
+.radioInfo{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.shipInfoContainer{
+    display: flex;
+    justify-content: space-between;
+}
+.radioGroup input{
+    margin-right: 10px;
+    width: 20px;
+}
