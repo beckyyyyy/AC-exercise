@@ -1,4 +1,4 @@
-import styles from "./phases.module.css"
+import styles from "./Phases.module.css"
 
 function ShippingMethod({ dataPrice, shippingId, shipMethod, shippingPeriod }) {
   let shipPrice = 0
@@ -9,7 +9,6 @@ function ShippingMethod({ dataPrice, shippingId, shipMethod, shippingPeriod }) {
   }
 
   return (
-    <>
       <label className={styles.radioGroup} dataPrice={dataPrice}>
         <input id={shippingId} type="radio" name="shipping" checked />
         <div className={styles.radioInfo}>
@@ -20,7 +19,6 @@ function ShippingMethod({ dataPrice, shippingId, shipMethod, shippingPeriod }) {
           <div className="period">{shippingPeriod}</div>
         </div>
       </label>
-    </>
   )
 }
 

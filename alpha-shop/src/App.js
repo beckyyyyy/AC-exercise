@@ -1,10 +1,10 @@
-import Header from "./components/header"
-import StepProgress from "./components/Step/stepProgress"
-import AddressPhase from "./components/Step/Phases/addressPhase"
-import ShippingPhase from "./components/Step/Phases/shippingPhase"
-import CreditCardPhase from "./components/Step/Phases/creditCartPhase"
-import { PrevButton } from "./components/Step/progressControl"
-import { NextButton } from "./components/Step/progressControl"
+import Header from "./components/Header/Header"
+import StepProgress from "./components/Step/StepProgress"
+import AddressPhase from "./components/Phases/AddressPhase"
+import ShippingPhase from "./components/Phases/ShippingPhase"
+import CreditCardPhase from "./components/Phases/CreditCartPhase"
+import { PrevButton } from "./components/ProgressControl/ProgressControl"
+import { NextButton } from "./components/ProgressControl/ProgressControl"
 import styles from "./App.module.css"
 
 function App() {

@@ -1,9 +1,8 @@
-import styles from "./step.module.css"
-import { ReactComponent as CompleteIcon } from "../icon/pg-complete.svg"
+import styles from "./Step.module.css"
+// import { ReactComponent as CompleteIcon } from "../assets/icon/pg-complete.svg"
 
 function OnProgress({ dataPhase, stepNo, progressLabel }) {
   return (
-    <>
       <span className={styles.progressGroup} dataPhase={dataPhase}>
         <span className={`${styles.OnProgressIcon} ${styles.progressIcon}`}>
           <span className={styles.stepText}>{stepNo}</span>
@@ -12,13 +11,11 @@ function OnProgress({ dataPhase, stepNo, progressLabel }) {
           {progressLabel}
         </span>
       </span>
-    </>
   )
 }
 
 function UnDoneProgress({ dataPhase, stepNo, progressLabel }) {
   return (
-    <>
       <span className={styles.progressGroup} dataPhase={dataPhase}>
         <span className={`${styles.unDoneProgressIcon} ${styles.progressIcon}`}>
           <span className={styles.stepText}>{stepNo}</span>
@@ -29,7 +26,6 @@ function UnDoneProgress({ dataPhase, stepNo, progressLabel }) {
           {progressLabel}
         </span>
       </span>
-    </>
   )
 }
 
