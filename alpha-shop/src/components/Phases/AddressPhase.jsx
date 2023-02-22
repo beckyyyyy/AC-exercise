@@ -2,31 +2,42 @@ import { genders } from "./data"
 import { cities } from "./data"
 import styles from "./Phases.module.css"
 
-export function Input({label, type, placeholder}){
+export function Input({ label, type, placeholder }) {
   return (
     <>
-    <div className={styles.inputLabel}>{label}</div>
-    <input className={styles.inputBox} type={type} placeholder={placeholder} />
+      <div className={styles.inputLabel}>{label}</div>
+      <input
+        className={styles.inputBox}
+        type={type}
+        placeholder={placeholder}
+      />
     </>
   )
 }
 
 function GenderSelect() {
   const genderOptions = genders.map((g) => {
-    return <option value={g.value}>{g.valueName}</option>
+    return (
+      <option value={g.value} key={g.value}>
+        {g.valueName}
+      </option>
+    )
   })
   return (
     <div className={styles.selectContainer}>
       <div className={styles.inputLabel}>稱謂</div>
       <select className={styles.selectBox}>{genderOptions}</select>
-    </div>  
+    </div>
   )
-  
 }
 
 function CitySelect() {
   const cityOptions = cities.map((c) => {
-    return <option value="c.value">{c.cityName}</option>
+    return (
+      <option value={c.value} key={c.value}>
+        {c.cityName}
+      </option>
+    )
   })
   return (
     <div className={styles.selectContainer}>
@@ -41,11 +52,11 @@ function CitySelect() {
 
 export default function AddressPhase() {
   return (
-    <form dataPhase="address">
+    <form id="address">
       <h3 className={styles.formTitle}>寄送地址</h3>
       <section className={styles.formBody}>
         <div className={styles.genderInput}>
-            <GenderSelect />
+          <GenderSelect />
         </div>
         <div className={styles.nameInput}>
           <Input label="姓名" type="text" placeholder="請輸入姓名" />
@@ -57,7 +68,7 @@ export default function AddressPhase() {
           <Input label="Email" type="email" placeholder="請輸入電子郵件" />
         </div>
         <div className={styles.cityInput}>
-            <CitySelect />
+          <CitySelect />
         </div>
         <div className={styles.addressInput}>
           <Input label="地址" type="text" placeholder="請輸入地址" />

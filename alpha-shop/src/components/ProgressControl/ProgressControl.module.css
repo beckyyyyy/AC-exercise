@@ -1,25 +1,40 @@
-.prevBtn,.nextBtn{
-    display: flex;
-    align-items: center;
-    border: 0;
-    background-color: transparent;
-    font-size: 14px;
-    cursor: pointer;
+.prevBtn,
+.nextBtn {
+  display: flex;
+  align-items: center;
+  border: 0;
+  background-color: transparent;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-.nextBtn{
-    display: flex;
-    justify-content: center;
-    width: 174px;
-    height: 46px;
-    border-radius: 8px;
-    background: #F67599;
-    color: #ffffff;
+.nextBtn {
+  display: flex;
+  justify-content: center;
+  width: 174px;
+  height: 46px;
+  border-radius: 8px;
+  background: #f67599;
+  color: #ffffff;
 }
-.prevBtn svg{
-    margin-right: 10px;
-    fill:#000000;
+.prevBtn svg {
+  margin-right: 10px;
+  fill: #000000;
 }
-.nextBtn svg{
-    margin-left: 10px;
+.nextBtn svg {
+  margin-left: 10px;
+}
+
+/* 隱藏按鈕 */
+.hidden {
+  visibility: hidden;
+}
+.visible {
+  visibility: visible;
+}
+.none {
+  display: none;
+}
+.block {
+  display: block;
 }
