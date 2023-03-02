@@ -2,20 +2,13 @@ import { cartItems } from "./data"
 import { ReactComponent as Minus } from "../../assets/icon/minus.svg"
 import { ReactComponent as Plus } from "../../assets/icon/plus.svg"
 import styles from "./Cart.module.css"
-import { useState } from "react"
+import { useState, useContext } from "react"
+import { CartContext } from "../../CartContext"
 
-function DisplayCartItems({
-  name,
-  img,
-  quantity,
-  price,
-  shipFee,
-  totalPrice,
-  setTotalPrice,
-  setFinalPrice,
-}) {
+function DisplayCartItems({ name, img, quantity, price }) {
   const [productCount, setProductCount] = useState(quantity)
   const [productPrice, setProductPrice] = useState(price * quantity)
+  const { totalPrice, setTotalPrice } = useContext(CartContext)
 
   function handleOnclick(event) {
     const targetEvent = event.target
@@ -33,11 +26,9 @@ function DisplayCartItems({
       } else {
         return
       }
-      // setProductCount(newQuantity)
     }
     setProductPrice(newQuantity * price)
     setTotalPrice(calcTotalPrice)
-    setFinalPrice(calcTotalPrice + shipFee)
   }
 
   if (productCount === 0) {
@@ -78,28 +69,15 @@ function DisplayCartInfo({ sectionClass, text, price }) {
     </section>
   )
 }
-//
-export default function Cart({
-  shipFee,
-  totalPrice,
-  setTotalPrice,
-  finalPrice,
-  setFinalPrice,
-}) {
+
+export default function Cart() {
+  const { shipFee, finalPrice } = useContext(CartContext)
   return (
     <>
       <h3 className={styles.cartTitle}>購物籃</h3>
       <section className="productList">
         {cartItems.map((item) => (
-          <DisplayCartItems
-            key={item.id}
-            {...item}
-            shipFee={shipFee}
-            totalPrice={totalPrice}
-            setTotalPrice={setTotalPrice}
-            finalPrice={finalPrice}
-            setFinalPrice={setFinalPrice}
-          />
+          <DisplayCartItems key={item.id} {...item} />
         ))}
       </section>
       <DisplayCartInfo sectionClass="shipping" text="運費" price={shipFee} />

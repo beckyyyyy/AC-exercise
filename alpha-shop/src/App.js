@@ -4,10 +4,13 @@ import AddressPhase from "./components/Phases/AddressPhase"
 import ShippingPhase from "./components/Phases/ShippingPhase"
 import CreditCardPhase from "./components/Phases/CreditCartPhase"
 import Cart from "./components/Cart/Cart"
-import { PrevButton } from "./components/ProgressControl/ProgressControl"
-import { NextButton } from "./components/ProgressControl/ProgressControl"
+import {
+  PrevButton,
+  NextButton,
+} from "./components/ProgressControl/ProgressControl"
 import styles from "./App.module.css"
 import { useState } from "react"
+import { CartContext } from "./CartContext"
 
 function App() {
   //商品總金額
@@ -15,84 +18,71 @@ function App() {
   //運費
   const [shipFee, setShipFee] = useState(500)
   //商品總金額加上運費
-  const [finalPrice, setFinalPrice] = useState(400 + shipFee)
+  const finalPrice = totalPrice + shipFee
+  // 付款資訊
+  const creditCardInfoForm = {
+    cardHolder: "",
+    cardNo: "",
+    validDate: "",
+    ccvNo: "",
+  }
+  const [creditCardInfo, setCreditCardInfo] = useState(creditCardInfoForm)
 
   //切換步驟
-  const phases = [
-    <AddressPhase />,
-    <ShippingPhase
-      shipFee={shipFee}
-      setShipFee={setShipFee}
-      totalPrice={totalPrice}
-      setFinalPrice={setFinalPrice}
-    />,
-    <CreditCardPhase />,
-  ]
+  const phases = [<AddressPhase />, <ShippingPhase />, <CreditCardPhase />]
   const [phaseIndex, setPhaseIndex] = useState(0)
-  const [phase, setPhase] = useState(phases[phaseIndex])
-  const [btnStyle, setBtnStyle] = useState("hidden")
+  const currentPhase = phases[phaseIndex]
   const [btnText, setBtnText] = useState("下一步")
-  const [arrowStyle, setArrowStyle] = useState("block")
-  const [icon, setIcon] = useState(["onProgressIcon"])
-  const [label, setLabel] = useState(["onProgressLabel"])
-  const [bar, setBar] = useState([])
 
-  function handlePrevClick(event) {
+  function handlePrevClick() {
     setPhaseIndex(phaseIndex - 1)
-    setPhase(phases[phaseIndex - 1])
     setBtnText("下一步")
-    setArrowStyle("block")
-    setIcon(icon.slice(1))
-    setLabel(label.slice(0, label.length - 1))
-    setBar(bar.slice(0, bar.length - 1))
-    if (phaseIndex === 1) {
-      setBtnStyle("hidden")
-    } else {
-      setBtnText("下一步")
-    }
   }
   function handleNextClick() {
     if (phaseIndex === phases.length - 2) {
       setBtnText("確定訂單")
-      setArrowStyle("none")
     } else if (phaseIndex >= phases.length - 1) {
+      // 點擊確認訂單
+      console.log(`
+      購物車總金額：${finalPrice}
+      持卡人姓名：${creditCardInfo.cardHolder}
+      卡號：${creditCardInfo.cardNo}
+      有效期限：${creditCardInfo.validDate}
+      CCV：${creditCardInfo.ccvNo}
+      `)
       return
     }
     setPhaseIndex(phaseIndex + 1)
-    setPhase(phases[phaseIndex + 1])
-    setBtnStyle("visible")
-    setIcon(["doneProgressIcon", ...icon])
-    setLabel([...label, "onProgressLabel"])
-    setBar([...bar, "onProgressBar"])
   }
 
   return (
-    <div>
+    <CartContext.Provider
+      value={{
+        totalPrice,
+        setTotalPrice,
+        shipFee,
+        setShipFee,
+        finalPrice,
+        phaseIndex,
+        creditCardInfo,
+        setCreditCardInfo,
+      }}
+    >
       <Header />
       <main className={styles.siteMain}>
         <div className={styles.mainContainer}>
-          <StepProgress icon={icon} label={label} bar={bar} />
-          <section className={styles.formContainer}>{phase}</section>
+          <StepProgress phaseIndex={phaseIndex} />
+          <section className={styles.formContainer}>{currentPhase}</section>
         </div>
         <div className={styles.buttonGroup}>
-          <PrevButton btnStyle={btnStyle} onClick={handlePrevClick} />
-          <NextButton
-            btnName={btnText}
-            arrowStyle={arrowStyle}
-            onClick={handleNextClick}
-          />
+          {phaseIndex !== 0 && <PrevButton onClick={handlePrevClick} />}
+          <NextButton btnName={btnText} onClick={handleNextClick} />
         </div>
         <div className={styles.cartContainer}>
-          <Cart
-            shipFee={shipFee}
-            totalPrice={totalPrice}
-            setTotalPrice={setTotalPrice}
-            finalPrice={finalPrice}
-            setFinalPrice={setFinalPrice}
-          />
+          <Cart />
         </div>
       </main>
-    </div>
+    </CartContext.Provider>
   )
 }
 

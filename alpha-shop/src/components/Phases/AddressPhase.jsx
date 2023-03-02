@@ -2,14 +2,15 @@ import { genders } from "./data"
 import { cities } from "./data"
 import styles from "./Phases.module.css"
 
-export function Input({ label, type, placeholder }) {
+export function Input({ label, type, placeholder, onChange, className }) {
   return (
     <>
       <div className={styles.inputLabel}>{label}</div>
       <input
-        className={styles.inputBox}
+        className={`${styles.inputBox} ${className}`}
         type={type}
         placeholder={placeholder}
+        onChange={onChange}
       />
     </>
   )

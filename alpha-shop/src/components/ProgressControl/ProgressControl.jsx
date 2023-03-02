@@ -14,11 +14,11 @@ export function PrevButton({ onClick, btnStyle }) {
   )
 }
 
-export function NextButton({ btnName, onClick, arrowStyle }) {
+export function NextButton({ onClick, btnName }) {
   return (
     <button className={styles.nextBtn} onClick={onClick}>
       {btnName}
-      <RightArrow className={styles[arrowStyle]} />
+      {btnName === "下一步" && <RightArrow />}
     </button>
   )
 }

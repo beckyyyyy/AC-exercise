@@ -21,10 +21,10 @@
 .buttonGroup {
   grid-row: 3/4;
   display: flex;
-  justify-content: space-between;
   margin-top: 40px;
   padding-top: 20px;
   border-top: 1px solid #e6e6eb;
+  position: relative;
 }
 
 /* 購物籃 */

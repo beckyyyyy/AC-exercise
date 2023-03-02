@@ -2,17 +2,20 @@
 .nextBtn {
   display: flex;
   align-items: center;
-  border: 0;
-  background-color: transparent;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.nextBtn {
-  display: flex;
-  justify-content: center;
   width: 174px;
   height: 46px;
+  border: 0;
+  background: transparent;
+  font-size: 14px;
+  cursor: pointer;
+  position: absolute;
+}
+.prevBtn {
+  left: 0;
+}
+.nextBtn {
+  right: 0;
+  justify-content: center;
   border-radius: 8px;
   background: #f67599;
   color: #ffffff;
@@ -31,10 +34,4 @@
 }
 .visible {
   visibility: visible;
-}
-.none {
-  display: none;
-}
-.block {
-  display: block;
 }

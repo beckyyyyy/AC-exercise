@@ -11,16 +11,16 @@
 .progressBar {
   display: block;
   height: 2px;
-  width: 50px;
+  width: 15%;
   background-color: #c6c1c1;
   position: absolute;
   top: 50%;
 }
 .left {
-  left: 20%;
+  left: 22.5%;
 }
 .right {
-  right: 20%;
+  right: 22.5%;
 }
 .onProgressBar {
   background-color: #000000;
