@@ -5,6 +5,8 @@ import styles from "./Cart.module.css"
 import { useState, useContext } from "react"
 import { CartContext } from "../../CartContext"
 
+const dollars = new Intl.NumberFormat({ style: "currency" })
+
 function DisplayCartItems({ name, img, quantity, price }) {
   const [productCount, setProductCount] = useState(quantity)
   const [productPrice, setProductPrice] = useState(price * quantity)
@@ -27,7 +29,7 @@ function DisplayCartItems({ name, img, quantity, price }) {
         return
       }
     }
-    setProductPrice(newQuantity * price)
+    setProductPrice(dollars.format(newQuantity * price))
     setTotalPrice(calcTotalPrice)
   }
 
@@ -81,7 +83,11 @@ export default function Cart() {
         ))}
       </section>
       <DisplayCartInfo sectionClass="shipping" text="運費" price={shipFee} />
-      <DisplayCartInfo sectionClass="total" text="小計" price={finalPrice} />
+      <DisplayCartInfo
+        sectionClass="total"
+        text="小計"
+        price={dollars.format(finalPrice)}
+      />
     </>
   )
 }

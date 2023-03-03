@@ -2,7 +2,7 @@ import styles from "./Phases.module.css"
 import { CartContext } from "../../CartContext"
 import { useContext } from "react"
 
-function ShippingMethod({ dataPrice, shippingId, shipMethod, shippingPeriod }) {
+function ShippingMethod({ shipFee, shippingId, shipMethod, shippingPeriod }) {
   const { setShipFee } = useContext(CartContext)
 
   function handleClick(event) {
@@ -14,7 +14,7 @@ function ShippingMethod({ dataPrice, shippingId, shipMethod, shippingPeriod }) {
   }
 
   return (
-    <label className={styles.radioGroup} dataPrice={dataPrice}>
+    <label className={styles.radioGroup}>
       <input
         id={shippingId}
         type="radio"
@@ -25,7 +25,7 @@ function ShippingMethod({ dataPrice, shippingId, shipMethod, shippingPeriod }) {
       <div className={styles.radioInfo}>
         <div className={styles.shipInfoContainer}>
           <div className="text">{shipMethod}</div>
-          <div className="price">{dataPrice}</div>
+          <div className="price">{shipFee}</div>
         </div>
         <div className="period">{shippingPeriod}</div>
       </div>
@@ -39,13 +39,13 @@ export default function ShippingPhase() {
       <h3 className={styles.formTitle}>運送方式</h3>
       <section className={styles.formBody}>
         <ShippingMethod
-          dataPrice="免費"
+          shipFee="免費"
           shippingId="shippingStandard"
           shipMethod="標準運送"
           shippingPeriod="約 3~7 個工作天"
         />
         <ShippingMethod
-          dataPrice="500"
+          shipFee="500"
           shippingId="shippingDhl"
           shipMethod="DHL 貨運"
           shippingPeriod="48小時內抵達"
