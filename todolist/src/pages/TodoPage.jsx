@@ -46,6 +46,7 @@ const TodoPage = () => {
         },
       ];
     });
+    setInputValue('');
   };
 
   const handleKeyDown = () => {
@@ -62,6 +63,7 @@ const TodoPage = () => {
         },
       ];
     });
+    setInputValue('');
   };
 
   const handleToggleDone = (id) => {
@@ -107,6 +109,14 @@ const TodoPage = () => {
     });
   };
 
+  const handleDelete = (id) => {
+    setTodos((prevTodos) => {
+      return prevTodos.filter((todo) => {
+        return todo.id !== id;
+      });
+    });
+  };
+
   return (
     <div>
       TodoPage
@@ -122,8 +132,9 @@ const TodoPage = () => {
         onToggleDone={handleToggleDone}
         onChangeMode={handleChangeMode}
         onSave={handleSave}
+        onDelete={handleDelete}
       />
-      <Footer />
+      <Footer todos={todos} />
     </div>
   );
 };

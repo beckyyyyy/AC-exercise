@@ -10,10 +10,10 @@
    ```sh
    npm start
    ```
-4. 若成功運行，將自動開啟瀏覽器連至網址如下：
+4. 若成功運行，將自動開啟瀏覽器連至網址如下：  
    http://localhost:3000
 
-5. 功能頁對應網址：
-   Login Page -> http://localhost:3000/login
-   Sign up Page -> http://localhost:3000/signup
-   Todo list Page -> http://localhost:3000/todo
+5. 功能頁對應網址：  
+   [Login Page](http://localhost:3000/login)  
+   [Sign up Page](http://localhost:3000/signup)  
+   [Todo list Page](http://localhost:3000/todo)
