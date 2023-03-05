@@ -1,6 +1,6 @@
 import styles from "./Step.module.css"
 import { useContext } from "react"
-import { CartContext } from "../../CartContext"
+import { CartContext } from "CartContext"
 
 function Progress({ stepNo, progressLabel }) {
   const { phaseIndex } = useContext(CartContext)

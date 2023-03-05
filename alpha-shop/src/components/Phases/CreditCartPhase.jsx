@@ -1,7 +1,7 @@
 import styles from "./Phases.module.css"
 import { Input } from "./AddressPhase"
 import { useContext } from "react"
-import { CartContext } from "../../CartContext"
+import { CartContext } from "CartContext"
 
 export default function CreditCardPhase() {
   const { creditCardInfo, setCreditCardInfo } = useContext(CartContext)

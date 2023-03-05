@@ -1,16 +1,16 @@
-import Header from "./components/Header/Header"
-import StepProgress from "./components/Step/StepProgress"
-import AddressPhase from "./components/Phases/AddressPhase"
-import ShippingPhase from "./components/Phases/ShippingPhase"
-import CreditCardPhase from "./components/Phases/CreditCartPhase"
-import Cart from "./components/Cart/Cart"
+import Header from "components/Header/Header"
+import StepProgress from "components/Step/StepProgress"
+import AddressPhase from "components/Phases/AddressPhase"
+import ShippingPhase from "components/Phases/ShippingPhase"
+import CreditCardPhase from "components/Phases/CreditCartPhase"
+import Cart from "components/Cart/Cart"
 import {
   PrevButton,
   NextButton,
-} from "./components/ProgressControl/ProgressControl"
+} from "components/ProgressControl/ProgressControl"
 import styles from "./App.module.css"
 import { useState } from "react"
-import { CartContext } from "./CartContext"
+import { CartContext } from "CartContext"
 
 function App() {
   //商品總金額

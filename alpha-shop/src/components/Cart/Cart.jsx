@@ -1,9 +1,9 @@
 import { cartItems } from "./data"
-import { ReactComponent as Minus } from "../../assets/icon/minus.svg"
-import { ReactComponent as Plus } from "../../assets/icon/plus.svg"
+import { ReactComponent as Minus } from "assets/icon/minus.svg"
+import { ReactComponent as Plus } from "assets/icon/plus.svg"
 import styles from "./Cart.module.css"
 import { useState, useContext } from "react"
-import { CartContext } from "../../CartContext"
+import { CartContext } from "CartContext"
 
 const dollars = new Intl.NumberFormat({ style: "currency" })
 
@@ -63,9 +63,9 @@ function DisplayCartItems({ name, img, quantity, price }) {
   }
 }
 
-function DisplayCartInfo({ sectionClass, text, price }) {
+function DisplayCartInfo({ text, price }) {
   return (
-    <section className={`${styles[sectionClass]} ${styles.cartInfo}`}>
+    <section className={styles.cartInfo}>
       <div className={styles.infoText}>{text}</div>
       <div className={styles.productPrice}>{price}</div>
     </section>
@@ -82,12 +82,8 @@ export default function Cart() {
           <DisplayCartItems key={item.id} {...item} />
         ))}
       </section>
-      <DisplayCartInfo sectionClass="shipping" text="運費" price={shipFee} />
-      <DisplayCartInfo
-        sectionClass="total"
-        text="小計"
-        price={dollars.format(finalPrice)}
-      />
+      <DisplayCartInfo text="運費" price={shipFee} />
+      <DisplayCartInfo text="小計" price={dollars.format(finalPrice)} />
     </>
   )
 }

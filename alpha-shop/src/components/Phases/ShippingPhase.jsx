@@ -1,5 +1,5 @@
 import styles from "./Phases.module.css"
-import { CartContext } from "../../CartContext"
+import { CartContext } from "CartContext"
 import { useContext } from "react"
 
 function ShippingMethod({ shipFee, shippingId, shipMethod, shippingPeriod }) {
